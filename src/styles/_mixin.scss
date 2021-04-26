@@ -1,0 +1,45 @@
+@import "./vars";
+
+@mixin setup_size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex_center($flex) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $flex;
+}
+
+@mixin setup_font($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin default_transition($duration) {
+  transition: all $duration ease;
+}
+
+@mixin font_title(){
+  font-size: 2vw;
+  font-weight: 800;
+  @media only screen and (max-width: $breakpoint) {
+    font-size: 2vh;
+  }
+}
+
+@mixin font_subtitle(){
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+@mixin font_basic(){
+  font-size: 0.75vw;
+  font-weight: normal;
+}
+
+@mixin font_desc(){
+  font-size: 0.5vw;
+  font-weight: 200;
+}

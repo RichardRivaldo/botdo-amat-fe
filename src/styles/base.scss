@@ -1,0 +1,41 @@
+@import "./mixin";
+@import "./vars";
+
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    object-fit: cover;
+    color : $white;
+    @include default_transition(0.3s);
+}
+
+body{
+    @include setup_size(100vw,100vh);
+    background-color: $navy;
+}
+
+header{
+    @include setup_size(100%, 10vh);
+    @include flex_center(column);
+    &>*{margin : 0.25% 0;}
+}
+
+.title{
+    @include font_title();
+}
+
+.subtitle{
+    @include font_basic();
+}
+
+.horizontal-bar{
+    @include setup_size(30vw, 1vh);
+    border-radius: 32px;
+    background-color: $cyan;
+}
+
+.main-container{
+    @include setup_size(100%, 100%);
+    padding : 2.5vh 10vw;
+}
