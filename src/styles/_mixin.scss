@@ -25,21 +25,30 @@
   font-size: 2vw;
   font-weight: 800;
   @media only screen and (max-width: $breakpoint) {
-    font-size: 2vh;
+    font-size: 3vh;
   }
 }
 
 @mixin font_subtitle(){
   font-size: 1vw;
-  font-weight: 600;
+  font-weight: 800;
+  @media only screen and (max-width: $breakpoint) {
+    font-size: 2.5vh;
+  }
 }
 
 @mixin font_basic(){
   font-size: 0.75vw;
   font-weight: normal;
+  @media only screen and (max-width: $breakpoint) {
+    font-size: 1.5vh;
+  }
 }
 
 @mixin font_desc(){
   font-size: 0.5vw;
   font-weight: 200;
+   @media only screen and (max-width: $breakpoint) {
+    font-size: 1vh;
+  }
 }

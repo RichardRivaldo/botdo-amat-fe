@@ -1,0 +1,20 @@
+@import "../styles/mixin";
+@import "../styles/vars";
+
+.login-container{
+    @include setup_size(100%,100%);
+    @include flex_center(column);
+    .title{
+        margin : 2vh 0;
+    }
+}
+
+form{
+    @include setup_size(100%, 50vh);
+    @include flex_center(column);
+    position: relative;
+    padding : 5% 15%;
+    background-color: $cyan;
+    border-radius: 16px;
+    margin-bottom: 5vh;
+}

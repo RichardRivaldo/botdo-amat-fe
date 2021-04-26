@@ -33,9 +33,22 @@ header{
     @include setup_size(30vw, 1vh);
     border-radius: 32px;
     background-color: $cyan;
+    @media only screen and (max-width: $breakpoint) {
+        height: 0.5vh;
+    }
 }
 
 .main-container{
     @include setup_size(100%, 100%);
-    padding : 2.5vh 10vw;
+    padding : 5vh 35vw;
+    @media only screen and (max-width: $breakpoint) {
+        padding: 5vh 12.5vw;
+    }
+}
+
+.content-container{
+    @include setup_size(100%, 80vh);
+    @media only screen and (max-width: $breakpoint) {
+        height: 75vh;
+    }
 }

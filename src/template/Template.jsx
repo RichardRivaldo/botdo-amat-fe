@@ -1,6 +1,7 @@
-const Template = () => (
+const Template = ({children}) => (
 	<div className='main-container'>
 		<Header />
+		<div className='content-container'>{children}</div>
 	</div>
 );
 
