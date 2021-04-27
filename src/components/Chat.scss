@@ -23,3 +23,42 @@
         left : 60vw;
     }
 }
+
+.chat-box{
+    @include setup_size(100%,fit-content);
+    display: grid;
+    position: relative;
+    min-height: 10vh;
+    margin-bottom : 2vh;
+    .chat-container{
+        @include setup_size(100%,fit-content);
+        @include font_basic();
+        border-radius: 4px;
+        padding : 2.5%;
+        min-height: 10vh;
+        background-color: $cyan;
+        grid-area : chat;
+    }
+    .chat-timestamp{
+        @include setup_size(100%,fit-content);
+        @include font_desc();
+        position: absolute;
+        bottom : 0;
+        grid-area : time;
+    }
+}
+
+.me{
+    text-align: left;
+    grid-template-areas: "time chat chat chat chat";
+    .chat{padding-right : 12.5%;}
+    .chat-container{clip-path: polygon(0% 0%, 100% 0, 90% 11%, 90% 100%, 0 100%);}
+    .chat-timestamp{left : 0; padding-right: 10%; text-align: right;}
+}
+.them{
+    text-align: left;
+    grid-template-areas: "chat chat chat chat time";
+    .chat{padding-left : 12.5%;}
+    .chat-container{clip-path: polygon(10% 10%, 0 0, 100% 0, 100% 98%, 10% 100%);}
+    .chat-timestamp{right : 0; padding-left: 10%;}
+}

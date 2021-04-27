@@ -6,8 +6,8 @@ export const ChatMain = ({chat}) => (
 	</div>
 );
 
-export const Chat = ({chat, time, isMe}) => (
-	<div className={`chat-box ${isMe ? "me" : "them"}`}>
+export const Chat = ({chat, time, mine}) => (
+	<div className={`chat-box ${mine ? "me" : "them"}`}>
 		<div className='chat-container'>
 			<p className='chat'>{chat}</p>
 		</div>

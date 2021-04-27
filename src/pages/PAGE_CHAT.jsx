@@ -1,7 +1,10 @@
+import {Chat} from "../components/Chat";
+
 const PAGE_CHAT = () => {
 	return (
 		<>
-			<div>Ini halaman CHAT</div>
+			<Chat chat="Halo" time="Time" mine/>
+			<Chat chat="Halo" time="Time"/>
 		</>
 	);
 };

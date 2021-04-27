@@ -61,6 +61,7 @@ input, textarea{
 
 .content-container{
     @include setup_size(100%, 85vh);
+    padding-top : 2.5vh;
     @media only screen and (max-width: $breakpoint) {
         height: 85vh;
     }
