@@ -1,21 +1,27 @@
-import {useState} from "react";
-import {LabText, Button} from "../components/Form";
+import {useState, useEffect} from "react";
 
-import {login} from "../API/APIHandler";
+import {LabText, Button} from "../components/Form";
+import {useUserUpdate} from "../context/UserContext";
 
 import "./PAGE_LOGIN.scss";
 
 const PAGE_LOGIN = () => {
 	const [username,  setUsername] = useState("");
 	const [password,  setPassword] = useState("");
+	const [page, setPage] = useState("login");
 
-	const handleLogin = async() =>{
-		let res = await login({username,password});
-	}
+	const {handleLogin, handleSignup, handleCheckUser} = useUserUpdate();
+
+	const login = () => handleLogin({username,password});
+	const signup = () => handleSignup({username, password});
+
+	useEffect(async ()=>{
+		handleCheckUser();
+	},[])
 
 	return (
 		<div className='login-container'>
-			<form>
+			<div className="form">
 				<p className='title'>Login</p>
 				<LabText label='Username' text={username} setText={setUsername} />
 				<LabText
@@ -24,8 +30,22 @@ const PAGE_LOGIN = () => {
 					text={password}
 					setText={setPassword}
 				/>
-				<Button text="Login" onClick={handleLogin}/>
-			</form>
+				{page === "login" ? (
+					<>
+						<Button text='Login' onClick={login} />
+						<div className='basic' onClick={() => setPage("signup")}>
+							Don't have an account?
+						</div>
+					</>
+				) : (
+					<>
+						<Button text='Sign Up' onClick={signup} />
+						<div className='basic' onClick={() => setPage("login")}>
+							Already have account?
+						</div>
+					</>
+				)}
+			</div>
 		</div>
 	);
 };

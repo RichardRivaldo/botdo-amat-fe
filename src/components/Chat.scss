@@ -5,6 +5,7 @@
     @include setup_size(30vw, fit-content);
     min-height: 20vh;
     max-height: 30vh;
+    overflow-y: auto;
     position: absolute;
     left : 30vw;
     border-radius: 8px;
@@ -13,7 +14,7 @@
     padding : 2.5% 5% 5%;
     .chat{
         @include setup_size(85%,100%);
-        @include font_subtitle();
+        @include font_basic();
     }
     @media only screen and (max-width: $breakpoint) {
         min-height: 15vh;

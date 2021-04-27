@@ -25,6 +25,10 @@ const Header = () => {
 				</div>
 			); break;
 	}
+	let logout;
+	if (location.pathname !== "/") {
+		logout = <div className='logout'></div>;
+	}
 	return(
 	<header>
 		{nav}
