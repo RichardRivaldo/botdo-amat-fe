@@ -1,0 +1,47 @@
+@import "../styles/mixin";
+@import "../styles/vars";
+
+.robot-container{
+    @include setup_size(100%,100%);
+    position: relative;
+    overflow-x: visible;
+    .message-box{
+        @include setup_size(100%,30vh);
+        @include flex_center(column);
+        background-color: $cyan;
+        border-radius : 16px 16px 0 0;
+        padding : 5% 10%;
+
+        position: absolute;
+        bottom : 0vh;
+        z-index: 1;
+        textarea{
+            @include setup_size(100%, 50%);
+            padding : 2.5%;
+            border-radius: 8px;
+            background-color: $navy;
+            resize: none;
+        }
+        &>*{
+            margin-bottom: 1vh;
+        }
+    }
+    .robot{
+        @include setup_size(50vh,50vh);
+        position: absolute;
+        bottom : -20vw;
+        left : -20vh;
+        img{@include setup_size(100%,100%);}
+    }
+    @media only screen and (max-width: $breakpoint) {
+        .message-box{
+            height: 35vh;
+            &>*{margin-bottom: 2vh}
+        }
+        .robot{
+            @include setup_size(60vh,60vh);
+            bottom : 0vw;
+            left : -25vh;
+        }
+    }
+}

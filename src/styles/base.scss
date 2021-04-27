@@ -18,7 +18,16 @@ body{
 header{
     @include setup_size(100%, 10vh);
     @include flex_center(column);
+    position: relative;
     &>*{margin : 0.25% 0;}
+}
+
+img{
+    @include setup_size(100%,100%);
+}
+
+input, textarea{
+    border: none;
 }
 
 .title{
@@ -26,6 +35,10 @@ header{
 }
 
 .subtitle{
+    @include font_subtitle();
+}
+
+.basic{
     @include font_basic();
 }
 
@@ -40,15 +53,27 @@ header{
 
 .main-container{
     @include setup_size(100%, 100%);
-    padding : 5vh 35vw;
+    padding : 5vh 35vw 0vh;
     @media only screen and (max-width: $breakpoint) {
-        padding: 5vh 12.5vw;
+        padding: 5vh 12.5vw 0vh;
     }
 }
 
 .content-container{
-    @include setup_size(100%, 80vh);
+    @include setup_size(100%, 85vh);
     @media only screen and (max-width: $breakpoint) {
-        height: 75vh;
+        height: 85vh;
+    }
+}
+
+.navbar{
+    position: absolute;
+    right : -5vw;
+}
+
+.icon{
+    @include setup_size(2vh, 2vh);
+    @media only screen and (max-width: $breakpoint) {
+        @include setup_size(3vh, 3vh);
     }
 }

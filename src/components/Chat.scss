@@ -1,0 +1,19 @@
+@import "../styles/mixin";
+@import "../styles/vars";
+
+.chat-box-main{
+    @include setup_size(60vw, fit-content);
+    min-height: 15vh;
+    max-height: 25vh;
+    position: absolute;
+    bottom : 57.5vh;
+    left : 60vw;
+    border-radius: 8px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 10% 90%, 0 100%);
+    background-color: $cyan;
+    padding : 2.5% 5% 5%;
+    .chat{
+        @include setup_size(85%,100%);
+        @include font_subtitle();
+    }
+}
