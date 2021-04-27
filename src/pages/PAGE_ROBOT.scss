@@ -27,15 +27,16 @@
         }
     }
     .robot{
-        @include setup_size(50vh,50vh);
+        @include setup_size(75vh,75vh);
         position: absolute;
-        bottom : -20vw;
-        left : -20vh;
+        bottom : 0vw;
+        left : -25vw;
         img{@include setup_size(100%,100%);}
     }
     @media only screen and (max-width: $breakpoint) {
         .message-box{
             height: 35vh;
+            padding : 5% 10%;
             &>*{margin-bottom: 2vh}
         }
         .robot{
