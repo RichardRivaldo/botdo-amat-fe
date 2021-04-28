@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext, useState} from "react";
 import {login, signup, logout, checkUser} from "../API/APIHandler";
 import {normalizeResponse, setToken, getToken} from "../utils/utilFunction";
 
@@ -14,15 +14,19 @@ export const UserProvider = ({children}) => {
 	const [user, setUser] = useState(getToken());
 
 	const handleLogin = async ({username, password}) => {
-		const res = normalizeResponse(await login({username, password}));
-		if (res) {
-			toast.success("Sukses login!");
+		try{
+			const res = normalizeResponse(await login({username, password}));
+			toast.success(`Selamat datang kembali ${username}!!`);
 			setTimeout(() => {
 				setUser(res);
 				setToken(res.token);
 				window.location.href = "/dashboard";
 			}, 1000);
+		}catch(err){
+			console.log(err.response);
+			toast.error("Login gagal! Pastikan username dan password sesuai!");
 		}
+		
 	};
 
 	const handleSignUp = async ({username, password}) => {
@@ -51,15 +55,12 @@ export const UserProvider = ({children}) => {
 		try {
 			const res = await checkUser();
 			setUser(res.data);
-			return res;
+			return res.data;
 		} catch (err) {
 			toast.error(err.msg);
+			return false;
 		}
 	};
-
-	useEffect(async  ()  =>  {
-		await handleCheckUser();
-	},  []);;
 
 	return (
 		<UserContext.Provider value={user}>
