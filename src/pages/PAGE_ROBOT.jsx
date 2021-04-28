@@ -1,39 +1,21 @@
 import {useState} from "react";
 
 import ROBOT_ENUM from "../assets/Robot";
-import { Button } from "../components/Form";
-import { ChatMain } from "../components/Chat";
+import {Button} from "../components/Form";
+import {ChatMain} from "../components/Chat";
 
 import {talkToRobot, getRobotResponse} from "../API/APIHandler";
-import {normalizeResponse} from "../utils/utilFunction";
+import {normalizeResponse, handleError} from "../utils/utilFunction";
+import {robotHelpMenu} from "../utils/const";
 
 import {toast} from "react-toastify";
 
 import "./PAGE_ROBOT.scss";
 
-const robotHelpMenu = `[Fitur]<br/>
-1. Membuat task baru<br/>
-2. Melihat daftar task<br/>
-3. Melihat deadline n minggu kedepan<br/>
-4. Melihat deadline n hari kedepan<br/>
-5. Melihat deadline n minggu kedepan untuk tugas jenis tertentu<br/>
-6. Melihat deadline n hari kedepan untuk tugas jenis tertentu<br/>
-7. Melihat deadline hari ini<br/>
-8. Melihat deadline dari suatu task dengan kode matakuliah<br/>
-9. Merubah suatu deadline dengan ID tertentu menjadi selesai<br/>
-10. Merubah deadline dengan ID tertentu<br/>
-[Kata Penting]<br/>
-1. Kuis<br/>
-2. Ujian<br/>
-3. Tucil<br/>
-4. Tubees<br/>
-5. Praktikum<br/>
-6. PR`;
-
 const PAGE_ROBOT = () => {
 	const [robotState, setRobotState] = useState(ROBOT_ENUM.HappyRobot);
 	const [robotText, setRobotText] = useState(
-		"HELLO! Hoping a great day for you! What can i help you with?"
+		"HALO! Semoga harimu menyenangkan!! Apakah ada yang bisa saya bantu?"
 	);
 	const [text, setText] = useState("");
 
@@ -55,12 +37,10 @@ const PAGE_ROBOT = () => {
 				setRobotText(chat.content);
 			} catch (err) {
 				setRobotState(ROBOT_ENUM.SadRobot);
-				let chat = normalizeResponse(await getRobotResponse());
-				setRobotText(chat.content);
-				toast.error("Terjadi kesalahan!");
+				setRobotText("Maaf! Pesan tidak dikenali!");
+				handleError(err, toast);
 			}
 		}
-		
 	};
 
 	return (

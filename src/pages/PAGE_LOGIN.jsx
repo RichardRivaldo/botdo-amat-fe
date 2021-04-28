@@ -15,9 +15,12 @@ const PAGE_LOGIN = () => {
 	const login = () => handleLogin({username,password});
 	const signup = () => handleSignUp({username, password});
 
-	useEffect(async ()=>{
-		handleCheckUser();
-	},[])
+	useEffect(() => {
+		const check = async () => {
+			await handleCheckUser();
+		};
+		check();
+	}, []);
 
 	return (
 		<div className='login-container'>

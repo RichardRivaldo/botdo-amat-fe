@@ -51,14 +51,14 @@
 
 .me{
     text-align: left;
-    grid-template-areas: "time chat chat chat chat";
+    grid-template-areas: "time time chat chat chat";
     .chat{padding-right : 12.5%;}
     .chat-container{clip-path: polygon(0% 0%, 100% 0, 90% 11%, 90% 100%, 0 100%);}
     .chat-timestamp{left : 0; padding-right: 10%; text-align: right;}
 }
 .them{
     text-align: left;
-    grid-template-areas: "chat chat chat chat time";
+    grid-template-areas: "chat chat chat time time";
     .chat{padding-left : 12.5%;}
     .chat-container{clip-path: polygon(10% 10%, 0 0, 100% 0, 100% 98%, 10% 100%);}
     .chat-timestamp{right : 0; padding-left: 10%;}

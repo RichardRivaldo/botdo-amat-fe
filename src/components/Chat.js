@@ -1,3 +1,5 @@
+import {parseTimeChat} from "../utils/utilFunction";
+
 import "./Chat.scss";
 
 const normalizeChat = (chat) => {
@@ -17,7 +19,7 @@ export const Chat = ({chat, time, mine}) => (
 			<div className='chat'>{normalizeChat(chat)}</div>
 		</div>
 		<div className='chat-timestamp'>
-			<p className='timestamp'>{time}</p>
+			<p className='timestamp'>{parseTimeChat(time)}</p>
 		</div>
 	</div>
 );
