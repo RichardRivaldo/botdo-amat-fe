@@ -10,10 +10,10 @@ const PAGE_LOGIN = () => {
 	const [password,  setPassword] = useState("");
 	const [page, setPage] = useState("login");
 
-	const {handleLogin, handleSignup, handleCheckUser} = useUserUpdate();
+	const {handleLogin, handleSignUp, handleCheckUser} = useUserUpdate();
 
 	const login = () => handleLogin({username,password});
-	const signup = () => handleSignup({username, password});
+	const signup = () => handleSignUp({username, password});
 
 	useEffect(async ()=>{
 		handleCheckUser();
@@ -21,8 +21,8 @@ const PAGE_LOGIN = () => {
 
 	return (
 		<div className='login-container'>
-			<div className="form">
-				<p className='title'>Login</p>
+			<div className='form'>
+				<p className='title'>{page === "login" ? "Login" : "SignUp"}</p>
 				<LabText label='Username' text={username} setText={setUsername} />
 				<LabText
 					label='Password'

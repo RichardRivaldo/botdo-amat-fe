@@ -7,6 +7,8 @@ import { ChatMain } from "../components/Chat";
 import {talkToRobot, getRobotResponse} from "../API/APIHandler";
 import {normalizeResponse} from "../utils/utilFunction";
 
+import {useUser} from "../context/UserContext";
+
 import {toast} from "react-toastify";
 
 import "./PAGE_ROBOT.scss";

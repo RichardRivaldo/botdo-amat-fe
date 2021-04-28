@@ -26,11 +26,18 @@ export const UserProvider = ({children}) => {
 	};
 
 	const handleSignUp = async ({username, password}) => {
-		const res = await signup({username, password});
-		if (res) {
-			console.log(res);
-		} else {
-			console.log("GAGAL!");
+		try {
+			const res = normalizeResponse(await signup({username, password}));
+			toast.success(`Berhasil signup! Selamat datang ${username}`);
+			setTimeout(() => {
+				setUser(res);
+				setToken(res.token);
+				window.location.href = "/dashboard";
+			}, 1000);
+			return res;
+		} catch (err) {
+			toast.error("Terjadi kesalahan pada server!");
+			toast.error(err.msg);
 		}
 	};
 
