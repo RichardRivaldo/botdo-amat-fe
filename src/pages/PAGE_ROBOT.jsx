@@ -7,8 +7,6 @@ import { ChatMain } from "../components/Chat";
 import {talkToRobot, getRobotResponse} from "../API/APIHandler";
 import {normalizeResponse} from "../utils/utilFunction";
 
-import {useUser} from "../context/UserContext";
-
 import {toast} from "react-toastify";
 
 import "./PAGE_ROBOT.scss";
@@ -45,7 +43,7 @@ const PAGE_ROBOT = () => {
 	};
 
 	const handleSubmit = async () => {
-		if (isHelp) {
+		if (isHelp()) {
 			setRobotText(robotHelpMenu);
 		} else {
 			try {

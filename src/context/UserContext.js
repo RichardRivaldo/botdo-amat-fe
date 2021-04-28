@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import {login, signup, logout, checkUser} from "../API/APIHandler";
 import {normalizeResponse, setToken, getToken} from "../utils/utilFunction";
 
@@ -56,6 +56,10 @@ export const UserProvider = ({children}) => {
 			toast.error(err.msg);
 		}
 	};
+
+	useEffect(async  ()  =>  {
+		await handleCheckUser();
+	},  []);;
 
 	return (
 		<UserContext.Provider value={user}>
