@@ -86,3 +86,23 @@ input, textarea{
         @include setup_size(3vh, 3vh);
     }
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $navy;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $cyan;
+  border-radius: 16px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $cyan;
+}

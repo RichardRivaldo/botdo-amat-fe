@@ -5,21 +5,21 @@
     @include setup_size(30vw, fit-content);
     min-height: 20vh;
     max-height: 30vh;
-    overflow-y: auto;
     position: absolute;
     left : 30vw;
     border-radius: 8px;
+    overflow-y: auto;
     clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 10% 90%, 0 100%);
     background-color: $cyan;
-    padding : 2.5% 5% 5%;
+    padding : 2.5% 0% 5% 5%;
     .chat{
-        @include setup_size(85%,100%);
+        @include setup_size(100%,100%);
         @include font_basic();
     }
     @media only screen and (max-width: $breakpoint) {
-        min-height: 15vh;
+        min-height: 10vh;
         max-height: 25vh;
-        width: 60vw;
+        width: 65vw;
         bottom : 57.5vh;
         left : 60vw;
     }
@@ -29,14 +29,16 @@
     @include setup_size(100%,fit-content);
     display: grid;
     position: relative;
-    min-height: 10vh;
-    margin-bottom : 2vh;
+    min-height: 5vh;
+    margin-bottom : 3vh;
     .chat-container{
         @include setup_size(100%,fit-content);
         @include font_basic();
+        max-height: auto;
+        overflow-y: hidden;
         border-radius: 4px;
         padding : 2.5%;
-        min-height: 10vh;
+        min-height: 100%;
         background-color: $cyan;
         grid-area : chat;
     }
@@ -51,14 +53,20 @@
 
 .me{
     text-align: left;
-    grid-template-areas: "time time chat chat chat";
+    grid-template-areas: "empty empty time time chat chat chat";
+    @media only screen and (max-width: $breakpoint) {
+        grid-template-areas: "time time chat chat chat";
+    }
     .chat{padding-right : 12.5%;}
     .chat-container{clip-path: polygon(0% 0%, 100% 0, 90% 11%, 90% 100%, 0 100%);}
     .chat-timestamp{left : 0; padding-right: 10%; text-align: right;}
 }
 .them{
     text-align: left;
-    grid-template-areas: "chat chat chat time time";
+    grid-template-areas: "chat chat chat time time empty empty";
+    @media only screen and (max-width: $breakpoint) {
+        grid-template-areas: "chat chat chat time time";
+    }
     .chat{padding-left : 12.5%;}
     .chat-container{clip-path: polygon(10% 10%, 0 0, 100% 0, 100% 98%, 10% 100%);}
     .chat-timestamp{right : 0; padding-left: 10%;}
