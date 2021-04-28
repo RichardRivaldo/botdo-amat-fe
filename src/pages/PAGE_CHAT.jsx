@@ -3,6 +3,7 @@ import {Chat} from "../components/Chat";
 import {getAllChat} from "../API/APIHandler";
 import { normalizeResponse } from "../utils/utilFunction";
 import {toast} from "react-toastify";
+import ScrollableFeed from "react-scrollable-feed";
 
 import "./PAGE_CHAT.scss";
 
@@ -20,11 +21,10 @@ const PAGE_CHAT = () => {
 			}
 		}
 		fetchData();
-		
 	}, []);
 
 	return (
-		<div className='chat-container'>
+		<ScrollableFeed name='scroll-container' className='chat-container'>
 			{data
 				? data.map((row, i) =>
 						row.isRobot ? (
@@ -34,8 +34,8 @@ const PAGE_CHAT = () => {
 						)
 				  )
 				: ""}
-			<div className='bottom' ref={bottom}></div>
-		</div>
+			<div name='bottom' ref={bottom}></div>
+		</ScrollableFeed>
 	);
 };
 

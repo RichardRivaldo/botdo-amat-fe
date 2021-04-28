@@ -3,5 +3,6 @@
 
 .chat-container{
     @include setup_size(100%,100%);
+    overflow-x: hidden;
     overflow-y: scroll;
 }
