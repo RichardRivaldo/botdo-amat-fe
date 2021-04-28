@@ -57,9 +57,11 @@ export const UserProvider = ({children}) => {
 		}
 	};
 
-	useEffect(async  ()  =>  {
-		await handleCheckUser();
-	},  []);;
+	useEffect(()  =>  {
+		async function asyncUseEffect() { await handleCheckUser() }
+
+		asyncUseEffect();
+	},  []);
 
 	return (
 		<UserContext.Provider value={user}>
