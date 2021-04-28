@@ -72,6 +72,11 @@ input, textarea{
     right : -5vw;
 }
 
+.logout{
+    position: absolute;
+    left : -5vw;
+}
+
 .icon{
     @include setup_size(2.5vw, 2.5vw);
     &:hover{

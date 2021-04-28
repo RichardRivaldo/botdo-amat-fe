@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import {login, signup, logout, checkUser} from "../API/APIHandler";
-import {normalizeResponse, setToken} from "../utils/utilFunction";
+import {normalizeResponse, setToken, getToken} from "../utils/utilFunction";
 
 import {toast} from "react-toastify";
 
@@ -11,7 +11,7 @@ export const useUser = () => useContext(UserContext);
 export const useUserUpdate = () => useContext(UserUpdateContext);
 
 export const UserProvider = ({children}) => {
-	const [user, setUser] = useState(null);
+	const [user, setUser] = useState(getToken());
 
 	const handleLogin = async ({username, password}) => {
 		const res = normalizeResponse(await login({username, password}));
@@ -37,6 +37,7 @@ export const UserProvider = ({children}) => {
 	const handleLogout = async () => {
 		logout();
 		setUser(null);
+		window.location.href = "/";
 	};
 
 	const handleCheckUser = async () => {
